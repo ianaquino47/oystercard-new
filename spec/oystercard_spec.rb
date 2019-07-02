@@ -55,4 +55,14 @@ describe Oystercard do
     expect(subject.entry_station).to eq "Aldgate East"
   end
 
+  it 'checks that the journey list is empty be default' do
+    expect(subject.journeys).to eq []
+  end
+
+  it "touching in and out creates one journey" do
+    subject.top_up(2)
+    subject.touch_in('Aldgate East')
+    subject.touch_out('Hammersmith')
+    expect(subject.journeys).not_to be_empty
+  end
 end
