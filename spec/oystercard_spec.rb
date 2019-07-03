@@ -15,54 +15,42 @@ describe Oystercard do
     expect { subject.top_up(91) }.to raise_error("Error: Maximum balance is £#{Oystercard::MAXIMUM_BALANCE}")
   end
 
-  #  it "the fare amount gets deducted from the total balance" do
-  #    subject.top_up(50)
-  #    expect(subject.deduct(3)).to eq 47
-  #  end
-
-  it { should_not be_in_journey } # used predicate method matcher
-
-  it 'touching in changes in_journey to true' do
-    subject.top_up(2)
+  it 'touching in changes journey to not false' do
+    subject.top_up(50)
     subject.touch_in
-    expect(subject.in_journey?).to eq true
+    expect(subject.journey).not_to eq nil
   end
 
-  it 'touching out changes in_journey to false' do
+  it 'touching out changes journey to false' do
     subject.top_up(2)
     subject.touch_in
     subject.touch_out
-    expect(subject.in_journey?).to eq false
+    expect(subject.journey).to eq nil
   end
+
   it "checks for minimum balance on touch in and raises error if balance is < minimum fare: #{Oystercard::MINIMUM_FARE}" do
     expect { subject.touch_in }.to raise_error("Error: insufficient funds. Balance is #{subject.balance}.")
   end
+
   it "checks for minimum balance on touch in and does not raise error if balance is >= minimum fare: #{Oystercard::MINIMUM_FARE}" do
     subject.top_up(Oystercard::MINIMUM_FARE)
-    expect(subject.touch_in).to eq true
-  end
-  it 'deducts minimumfare from balance upon touch-out' do
-    subject.top_up(2)
-    subject.touch_in
-    expect { subject.touch_out }.to change { subject.balance }.by(-1)
+    expect { subject.touch_in }.not_to raise_error("Error: insufficient funds. Balance is #{subject.balance}.")
   end
 
-  it 'card remembers entry station after touch in' do
+  it 'deducts minimum fare from balance upon touch-out' do
     subject.top_up(2)
-    station = double(:fakestation)
-    allow(station).to receive(:name).and_return("Aldgate East")
-    subject.touch_in(station.name)
-    expect(subject.entry_station).to eq "Aldgate East"
+    subject.touch_in
+    expect { subject.touch_out }.to change { subject.balance }.by(-Journey::MINIMUM_FARE)
   end
 
   it 'checks that the journey list is empty be default' do
-    expect(subject.journeys).to eq []
+    expect(subject.journey_list).to eq []
   end
 
-  it "touching in and out creates one journey" do
+  it 'touching in and out creates one journey' do
     subject.top_up(2)
     subject.touch_in('Aldgate East')
     subject.touch_out('Hammersmith')
-    expect(subject.journeys).not_to be_empty
+    expect(subject.journey_list).not_to be_empty
   end
 end
