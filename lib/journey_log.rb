@@ -14,7 +14,7 @@ class JourneyLog
   end
 
   def finish(exit_station)
-    self.record_journey_if_no_touch_in(exit_station) if @current_journey.nil?
+    self.record_current_journey(nil) if @current_journey.nil?
     @current_journey.finish(exit_station)
     self.update_journey
   end
@@ -31,10 +31,5 @@ class JourneyLog
   def record_current_journey(entry_station)
     @current_journey||= @journey_class.new(entry_station)
   end
-
-  def record_journey_if_no_touch_in(exit_station)
-    @current_journey = @journey_class.new(nil)
-  end
-
 
 end
