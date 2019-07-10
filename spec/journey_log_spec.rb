@@ -25,7 +25,6 @@ describe JourneyLog do
     allow(fake_journey_class).to receive(:new).and_return fake_journey
     allow(fake_journey).to receive(:finish).and_return fake_journey
     subject.finish(fake_station)
-
     expect(subject.journey_list).to include fake_journey
   end
 

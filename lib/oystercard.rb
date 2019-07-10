@@ -9,7 +9,7 @@ class Oystercard
     @journey_log = journey_log
   end
 
-  attr_reader :balance
+  attr_reader :balance, :journey_log
 
   def top_up(amount)
     raise "Error: Maximum balance is £#{MAXIMUM_BALANCE}" if @balance + amount > MAXIMUM_BALANCE
@@ -33,3 +33,16 @@ class Oystercard
     @balance -= amount
   end
 end
+
+# oyster = Oystercard.new
+# oyster.top_up(90)
+# entry = Station.new('Aldgate',1)
+# exit = Station.new('Acton',5)
+# oyster.touch_in(entry)
+# oyster.touch_out(exit)
+# entry = Station.new('Shepherds Bush',2)
+# exit = Station.new('Richmond',5)
+# oyster.touch_in(entry)
+# oyster.touch_out(exit)
+# p oyster.journey_log
+# p oyster.balance

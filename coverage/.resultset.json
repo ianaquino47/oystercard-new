@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/student/oystercard/spec/journey_log_spec.rb": [
+      "/Users/iaquino47/Projects/Weekly Challenges/oystercard/spec/journey_log_spec.rb": [
         1,
         null,
         1,
@@ -29,13 +29,12 @@
         1,
         1,
         1,
-        null,
         1,
         null,
         null,
         null
       ],
-      "/Users/student/oystercard/lib/journey_log.rb": [
+      "/Users/iaquino47/Projects/Weekly Challenges/oystercard/lib/journey_log.rb": [
         1,
         null,
         1,
@@ -70,10 +69,9 @@
         5,
         null,
         null,
-        null,
         null
       ],
-      "/Users/student/oystercard/lib/journey.rb": [
+      "/Users/iaquino47/Projects/Weekly Challenges/oystercard/lib/journey.rb": [
         null,
         1,
         1,
@@ -103,7 +101,7 @@
         null,
         null
       ],
-      "/Users/student/oystercard/spec/journey_spec.rb": [
+      "/Users/iaquino47/Projects/Weekly Challenges/oystercard/spec/journey_spec.rb": [
         1,
         null,
         1,
@@ -149,7 +147,7 @@
         null,
         null
       ],
-      "/Users/student/oystercard/spec/oystercard_spec.rb": [
+      "/Users/iaquino47/Projects/Weekly Challenges/oystercard/spec/oystercard_spec.rb": [
         null,
         null,
         1,
@@ -197,7 +195,7 @@
         null,
         null
       ],
-      "/Users/student/oystercard/lib/oystercard.rb": [
+      "/Users/iaquino47/Projects/Weekly Challenges/oystercard/lib/oystercard.rb": [
         1,
         1,
         null,
@@ -234,7 +232,7 @@
         null,
         null
       ],
-      "/Users/student/oystercard/spec/station_spec.rb": [
+      "/Users/iaquino47/Projects/Weekly Challenges/oystercard/spec/station_spec.rb": [
         1,
         null,
         1,
@@ -250,7 +248,7 @@
         null,
         null
       ],
-      "/Users/student/oystercard/lib/station.rb": [
+      "/Users/iaquino47/Projects/Weekly Challenges/oystercard/lib/station.rb": [
         1,
         1,
         null,
@@ -261,6 +259,6 @@
         null
       ]
     },
-    "timestamp": 1562170914
+    "timestamp": 1562229949
   }
 }
